@@ -1,0 +1,16 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Include coglinev3.ansible_python"
+      include_role:
+        name: "coglinev3.ansible_python"
+    - name: Gather facts
+      setup: # aka gather_facts
+    - name: Discovered pyhton interpreter
+      debug:
+        msg: "{{ discovered_interpreter_python }}"
+    - name: Show OS
+      debug:
+        msg: "{{ ansible_distribution }} - {{ ansible_distribution_version }}"

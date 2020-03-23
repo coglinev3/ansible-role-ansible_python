@@ -1,0 +1,25 @@
+---
+# file: roles/ansible_python/tasks/install-python3.yml
+
+# Install Python 3 when available and version greater then 3.5
+- name: Install Python 3 when needed on apk based systems
+  raw: apk add --no-cache python3
+  when:
+    - apk_system.rc is defined
+    - apk_system.rc == 0
+- name: Install Python 3 when needed on apt-get based systems
+  raw: apt-get install -y python3-minimal
+  when:
+    - apt_system.rc is defined
+    - apt_system.rc == 0
+- name: Install Python 3 when needed on yum based systems
+  raw: yum -y install python3
+  when:
+    - yum_system.rc is defined
+    - yum_system.rc == 0
+- name: Install Python 3 when needed on dnf based systems
+  raw: dnf -y install python3)
+  when:
+    - yum_system.rc is not defined # sometimes yum and dnf are both installed
+    - dnf_system.rc is defined
+    - dnf_system.rc == 0
