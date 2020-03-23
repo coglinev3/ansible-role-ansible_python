@@ -79,8 +79,5 @@
     when:
       - dnf_system.rc is defined
       - dnf_system.rc == 0
-  - name: Print Python 3 version
-    debug:
-      var: python3_version
 
   when: needs_python.changed # End block
