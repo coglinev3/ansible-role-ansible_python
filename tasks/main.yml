@@ -1,0 +1,18 @@
+---
+# file: roles/ansible_python/tasks/main.yml
+
+# Detect if python is installed.
+# Get python3 version if python isn't pre-installed
+- include_tasks: detect-python.yml
+
+# Install Python 3 when available and version greater then 3.5
+- include_tasks: install-python3.yml
+  when:
+    - needs_python.changed
+    - python3_version >= "3.5"
+
+# Install Python 2
+- include_tasks: install-python2.yml
+  when:
+    - needs_python.changed
+    - python3_version < "3.5"

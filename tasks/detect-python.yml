@@ -1,0 +1,86 @@
+---
+# file: roles/ansible_python/tasks/detect-python.yml
+
+# Check if python is already installed
+- name: Check if Platform Python exists
+  raw: test -e /usr/libexec/platform-python
+  register: check_platform_python
+  changed_when: false
+  failed_when: false
+- name: Check if Python 3 exists
+  raw: test -e /usr/bin/python3
+  register: check_python3
+  changed_when: false
+  failed_when: false
+- name: Check if Python exists
+  raw: test -e /usr/bin/python
+  register: needs_python
+  changed_when: needs_python.rc != 0
+  failed_when: false
+  when:
+    - check_platform_python.rc !=0
+    - check_python3.rc != 0
+
+# When no python is installed, check if a python3 package
+# version 3.5 or higher is available.
+- block: # Begin block
+  - name: Search for Python 3 version on apk based systems
+    raw: >-
+      test -e /sbin/apk
+      && (apk update > /dev/null
+      && apk info python3|grep python3 | cut -d '-' -f 2)
+    register: apk_system
+    failed_when: false
+    changed_when: apk_system.rc == 0
+  - name: Search for Python 3 version on apt-get based systems
+    raw: >-
+      test -e /usr/bin/apt-get
+      && (apt-get update > /dev/null
+      && apt-cache show python3-minimal | grep Version)
+    register: apt_system
+    failed_when: false
+    changed_when: apt_system.rc == 0
+  - name: Search for Python 3 version on yum based systems
+    raw: >-
+      test -e /usr/bin/yum
+      && (yum makecache > /dev/null && yum info python3 | grep Version)
+    register: yum_system
+    failed_when: false
+    changed_when: yum_system.rc == 0
+  - name: Search for Python 3 version on dnf based systems
+    raw: >-
+      test -e /usr/bin/dnf
+      && (yum makecache > /dev/null && dnf info python3 | grep Version)
+    register: dnf_system
+    failed_when: false
+    changed_when: dnf_system.rc == 0
+    when: yum_system.rc != 0
+  - name: "apk: Get Python 3 version"
+    set_fact:
+      python3_version: "{{  apk_system.stdout.split('\n')[0] | trim }}"
+    when:
+      - apk_system.rc is defined
+      - apk_system.rc == 0
+  - name: "apt-get: Get Python 3 version"
+    set_fact:
+      python3_version: "{{  apt_system.stdout.split(':')[1] | trim }}"
+    when:
+      - apt_system.rc is defined
+      - apt_system.rc == 0
+  - name: "yum: Get Python 3 version"
+    set_fact:
+      python3_version: "{{  yum_system.stdout.split('\n')[0].split(':')[1] | trim }}"
+    when:
+      - yum_system.rc is defined
+      - yum_system.rc == 0
+  - name: "dnf: Get Python 3 version"
+    set_fact:
+      python3_version: "{{  dnf_system.stdout.split('\n')[0].split(':')[1] | trim }}"
+    when:
+      - dnf_system.rc is defined
+      - dnf_system.rc == 0
+  - name: Print Python 3 version
+    debug:
+      var: python3_version
+
+  when: needs_python.changed # End block

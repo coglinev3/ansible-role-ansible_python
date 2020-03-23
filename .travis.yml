@@ -1,0 +1,54 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: ansible_python
+    - AUTHOR_NAME: coglinev3
+  matrix:
+    - MOLECULE_DISTRO: alpine
+      MOLECULE_DISTRO_VERSION: 3.9
+    - MOLECULE_DISTRO: alpine
+      MOLECULE_DISTRO_VERSION: 3.10
+    - MOLECULE_DISTRO: alpine
+      MOLECULE_DISTRO_VERSION: 3.11
+    - MOLECULE_DISTRO: centos
+      MOLECULE_DISTRO_VERSION: 7
+    - MOLECULE_DISTRO: centos
+      MOLECULE_DISTRO_VERSION: 8
+    - MOLECULE_DISTRO: debian
+      MOLECULE_DISTRO_VERSION: 8
+    - MOLECULE_DISTRO: debian
+      MOLECULE_DISTRO_VERSION: 9
+    - MOLECULE_DISTRO: debian
+      MOLECULE_DISTRO_VERSION: 10
+    - MOLECULE_DISTRO: fedora
+      MOLECULE_DISTRO_VERSION: 29
+    - MOLECULE_DISTRO: fedora
+      MOLECULE_DISTRO_VERSION: 30
+    - MOLECULE_DISTRO: fedora
+      MOLECULE_DISTRO_VERSION: 31
+    - MOLECULE_DISTRO: ubuntu
+      MOLECULE_DISTRO_VERSION: 16.04
+    - MOLECULE_DISTRO: ubuntu
+      MOLECULE_DISTRO_VERSION: 18.04
+    - MOLECULE_DISTRO: ubuntu
+      MOLECULE_DISTRO_VERSION: 19.10
+
+install:
+  # Install test dependencies.
+  - pip install molecule yamllint ansible-lint docker
+
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-${ROLE_NAME} ${AUTHOR_NAME}.${ROLE_NAME}
+  - cd ${AUTHOR_NAME}.${ROLE_NAME}
+
+script:
+  # Run tests.
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

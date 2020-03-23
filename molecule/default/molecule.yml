@@ -1,0 +1,29 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: docker.io/${MOLECULE_DISTRO:-centos}:${MOLECULE_DISTRO_VERSION:-7}
+    pre_build_image: ${MOLECULE_DISTRO_PREBUILD:-true}
+provisioner:
+  name: ansible
+  # log: true
+verifier:
+  name: ansible
+lint: |
+  set -e
+  yamllint .
+  ansible-lint tests/test.yml
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - destroy
+    - syntax
+    - create
+    - converge
+    - idempotence
+    - verify
+    - destroy
