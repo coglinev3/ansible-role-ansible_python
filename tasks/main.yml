@@ -16,3 +16,6 @@
   when:
     - needs_python.changed
     - python3_version < "3.5"
+
+# Remove repository cache
+- include_tasks: remove-cache.yml
