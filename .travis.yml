@@ -7,15 +7,12 @@ env:
     - ROLE_NAME: ansible_python
     - AUTHOR_NAME: coglinev3
   matrix:
-    - MOLECULE_DISTRO: alpine
-      MOLECULE_DISTRO_VERSION: 3.9
-      MOLECULE_DISTRO_PREBUILD: false
-    - MOLECULE_DISTRO: alpine
-      MOLECULE_DISTRO_VERSION: 3.10
-      MOLECULE_DISTRO_PREBUILD: false
-    - MOLECULE_DISTRO: alpine
-      MOLECULE_DISTRO_VERSION: 3.11
-      MOLECULE_DISTRO_PREBUILD: false
+    - MOLECULE_DISTRO: coglinev3/alpine
+      MOLECULE_DISTRO_VERSION: 3.9-bash
+    - MOLECULE_DISTRO: coglinev3/alpine
+      MOLECULE_DISTRO_VERSION: 3.10-bash
+    - MOLECULE_DISTRO: coglinev3/alpine
+      MOLECULE_DISTRO_VERSION: 3.11-bash
     - MOLECULE_DISTRO: centos
       MOLECULE_DISTRO_VERSION: 6
     - MOLECULE_DISTRO: centos
