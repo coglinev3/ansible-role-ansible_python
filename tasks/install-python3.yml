@@ -8,7 +8,7 @@
     - apk_system.rc is defined
     - apk_system.rc == 0
 - name: Install Python 3 when needed on apt-get based systems
-  raw: apt-get install -y python3-minimal python3-apt
+  raw: apt-get install -y --no-install-recommends python3-minimal python3-apt
   when:
     - apt_system.rc is defined
     - apt_system.rc == 0
