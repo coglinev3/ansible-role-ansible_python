@@ -21,8 +21,9 @@ The supported Linux distributions for this role are:
 * Fedora 30,
 * Fedora 31,
 * Ubuntu 16.04 LTS (Xenial Xerus),
-* Ubuntu 18.04 LTS (Bionic Beaver) and
-* Ubuntu 19.10 (Eoan Ermine).
+* Ubuntu 18.04 LTS (Bionic Beaver),
+* Ubuntu 19.10 (Eoan Ermine) and
+* Ubuntu 20.04 (Focal Fossa).
 
 The role was tested with Molecule and Docker on Travis-CI and with this [Multi-VM Vagrant environment](https://ansible-development.readthedocs.io/ "Vagrant environment for Developing and Testing Ansible Roles").
 
@@ -61,7 +62,7 @@ None.
 
 ## Version
 
-Release: 1.1.0
+Release: 1.2.0
 
 ## License
 
