@@ -11,6 +11,19 @@
     - name: Discovered pyhton interpreter
       debug:
         msg: "{{ discovered_interpreter_python }}"
+    - name: "Get Python Version"
+      shell: >
+        PATH=/usr/local/bin:/bin:/usr/bin
+        /usr/libexec/platform-python --version
+        || python3 --version
+        || python --version 2>&1
+        || echo python not available
+      changed_when: false
+      failed_when: false
+      register: python_version
+    - name: "Show Python Version"
+      debug:
+        msg: "{{ python_version.stdout }}"
     - name: Show OS
       debug:
         msg: "{{ ansible_distribution }} - {{ ansible_distribution_version }}"

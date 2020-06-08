@@ -13,6 +13,8 @@ env:
       MOLECULE_DISTRO_VERSION: 3.10-bash
     - MOLECULE_DISTRO: coglinev3/alpine
       MOLECULE_DISTRO_VERSION: 3.11-bash
+    - MOLECULE_DISTRO: coglinev3/alpine
+      MOLECULE_DISTRO_VERSION: 3.12-bash
     - MOLECULE_DISTRO: centos
       MOLECULE_DISTRO_VERSION: 6
     - MOLECULE_DISTRO: centos
