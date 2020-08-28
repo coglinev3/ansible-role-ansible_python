@@ -64,7 +64,7 @@ None.
 
 ## Version
 
-Release: 1.4.1
+Release: 1.4.2
 
 ## License
 
