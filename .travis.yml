@@ -1,11 +1,24 @@
 ---
-language: python
-services: docker
+dist: focal
+addons:
+  apt:
+    packages:
+      - libssl-dev
+      - libffi-dev
+      - python3
+      - python3-pip
+      - python3-setuptools
+      - python3-software-properties
+      - python3-wheel
+
+language: minimal
+
+services:
+  - docker
 
 env:
   global:
     - ROLE_NAME: ansible_python
-    - AUTHOR_NAME: coglinev3
   matrix:
     - MOLECULE_DISTRO: coglinev3/alpine
       MOLECULE_DISTRO_VERSION: 3.9
@@ -46,13 +59,13 @@ env:
 
 install:
   # Install test dependencies.
-  - pip install molecule yamllint ansible-lint docker
+  - pip3 install -U jinja2 requests ansible molecule yamllint ansible-lint docker
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
-  - mv ansible-role-${ROLE_NAME} ${AUTHOR_NAME}.${ROLE_NAME}
-  - cd ${AUTHOR_NAME}.${ROLE_NAME}
+  - mv $(basename $TRAVIS_REPO_SLUG) $(dirname $TRAVIS_REPO_SLUG).${ROLE_NAME}
+  - cd $(dirname $TRAVIS_REPO_SLUG).${ROLE_NAME}
 
 script:
   # Run tests.
