@@ -18,7 +18,9 @@
   changed_when: needs_python.rc != 0
   failed_when: false
   when:
+    - check_platform_python.rc is defined
     - check_platform_python.rc !=0
+    - check_python3.rc is defined
     - check_python3.rc != 0
 
 # When no python is installed, check if a python3 package
