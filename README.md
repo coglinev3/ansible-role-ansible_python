@@ -60,7 +60,7 @@ None.
 
 ## Version
 
-Release: 1.4.5
+Release: 1.5.0
 
 ## License
 
