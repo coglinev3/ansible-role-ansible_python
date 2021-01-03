@@ -17,7 +17,6 @@ The supported Linux distributions for this role are:
 * Debian 10 (Buster),
 * Enterprise Linux 7, 
 * Enterprise Linux 8, 
-* Fedora 31,
 * Fedora 32,
 * Fedora 33,
 * Ubuntu 16.04 LTS (Xenial Xerus),
