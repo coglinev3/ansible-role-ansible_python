@@ -65,7 +65,7 @@ None.
 
 ## Version
 
-Release: 1.7.0
+Release: 1.8.0
 
 ## License
 
