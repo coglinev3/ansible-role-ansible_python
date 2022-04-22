@@ -38,8 +38,8 @@ jobs:
         run: |
           yamllint .
 
-  # Build the images and push them to Docker repository.
-  molecule:
+  # Test the Ansible role with Molecule
+  test:
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
@@ -125,3 +125,18 @@ jobs:
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_DISTRO_VERSION: ${{ matrix.distro_version }}
           ANSIBLE_ROLES_PATH: ~/.ansible/molecule/roles
+
+  # Push Ansible role to Ansible Galaxy
+  release:
+    name: Release
+    needs:
+      - lint
+      - test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: galaxy
+        uses: robertdebock/galaxy-action@1.2.0
+        with:
+          galaxy_api_key: ${{ secrets.galaxy_api_key }}
