@@ -1,6 +1,6 @@
 # Ansible Role: ansible_python
 
-[![Build Status](https://travis-ci.org/coglinev3/ansible-role-ansible_python.svg?branch=master)](https://travis-ci.org/coglinev3/ansible-role-ansible_python) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/coglinev3/ansible-role-ansible_python) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://raw.githubusercontent.com/coglinev3/ansible-role-ansible_python/master/LICENSE)
+[![Build](https://github.com/coglinev3/ansible-role-ansible_python/actions/workflows/build.yml/badge.svg)](https://github.com/coglinev3/ansible-role-ansible_python/actions/workflows/build.yml) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/coglinev3/ansible-role-ansible_python) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://raw.githubusercontent.com/coglinev3/ansible-role-ansible_python/master/LICENSE)
 
 Ansible needs Python 2 (version 2.6 or later) or Python 3 (version 3.5 or later) in order to work. But Python is not preinstalled on some Linux Distributions or Docker images (like on Ubuntu images). To prevent manual installation of Python on such systems, this Ansible role uses the raw module (which does not require Python) to install the Python2 or the Python3 package. Ansible can then be used normally on these systems.
 
