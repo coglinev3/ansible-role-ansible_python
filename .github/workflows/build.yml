@@ -83,6 +83,8 @@ jobs:
             distro_version: '18.04'
           - distro: ubuntu
             distro_version: '20.04'
+          - distro: ubuntu
+            distro_version: '22.04'
 
     steps:
       - name: Check out the codebase.
