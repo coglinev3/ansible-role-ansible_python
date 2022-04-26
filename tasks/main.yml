@@ -9,13 +9,13 @@
 - include_tasks: install-python3.yml
   when:
     - needs_python.changed
-    - python3_version >= "3.5"
+    - python3_minor_version | int >= 5
 
 # Install Python 2
 - include_tasks: install-python2.yml
   when:
     - needs_python.changed
-    - python3_version < "3.5"
+    - python3_minor_version | int < 5
 
 # Remove repository cache
 - include_tasks: remove-cache.yml
