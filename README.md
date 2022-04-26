@@ -67,7 +67,7 @@ None.
 
 ## Version
 
-Release: 1.8.1
+Release: 1.9.0
 
 ## License
 
