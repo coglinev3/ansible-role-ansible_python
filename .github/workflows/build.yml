@@ -79,6 +79,8 @@ jobs:
             distro_version: '34'
           - distro: fedora
             distro_version: '35'
+          - distro: fedora
+            distro_version: '36'
           - distro: ubuntu
             distro_version: '16.04'
           - distro: ubuntu
@@ -93,6 +95,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: 'coglinev3.ansible_python'
+
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -111,16 +114,13 @@ jobs:
         run: python3 -m pip install --upgrade --user setuptools
 
       - name: Install Ansible Molecule with docker driver and lint tools
-        run: python3 -m pip install --upgrade --user "molecule[ansible,docker,lint]" ansible-lint
-
-      - name: Create Ansible directory
-        run: mkdir -p ~/.ansible
+        run: python3 -m pip install --upgrade --user ansible ansible-lint "molecule[docker,lint]"
 
       - name: Configure Ansible
-        run: cp .github/ansible.cfg ~/.ansible.cfg
-
-      - name: Set up Ansible inventory file
-        run: cp .github/hosts ~/.ansible/hosts
+        run: |
+          mkdir -p ~/.ansible
+          cp .github/ansible.cfg ~/.ansible.cfg
+          cp .github/hosts ~/.ansible/hosts
 
       - name: Show Ansible and Molecule version
         run: |

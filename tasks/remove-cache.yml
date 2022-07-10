@@ -1,7 +1,7 @@
 ---
 # file: roles/ansible_python/tasks/remove-cache.yml
 
-- name: "apt: Remove repository cache"
+- name: "APT: Remove repository cache"
   raw: rm -rf /var/lib/apt/lists/*
   changed_when: false
   args:
@@ -10,7 +10,7 @@
     - apt_system.rc is defined
     - apt_system.rc == 0
 
-- name: "yum: Remove repository cache"
+- name: "YUM: Remove repository cache"
   raw: yum clean all --enablerepo=\*
   changed_when: false
   args:
@@ -19,7 +19,7 @@
     - yum_system.rc is defined
     - yum_system.rc == 0
 
-- name: "dnf: Remove repository cache"
+- name: "DNF: Remove repository cache"
   raw: dnf clean all --enablerepo=\*
   changed_when: false
   args:

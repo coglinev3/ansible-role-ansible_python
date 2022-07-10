@@ -25,7 +25,8 @@
 
 # When no python is installed, check if a python3 package
 # version 3.5 or higher is available.
-- block: # Begin block
+- name: "Check if python3 version 3.5 or higher is available"
+  block: # Begin block
   - name: Search for Python 3 version on apk based systems
     raw: >-
       test -e /sbin/apk
@@ -58,27 +59,27 @@
     changed_when: yum_system.rc == 0
     when: dnf_system.rc != 0
 
-  - name: "apk: Get Python 3 minor version"
+  - name: "APK: Get Python 3 minor version"
     set_fact:
-      python3_minor_version: "{{  apk_system.stdout.split('.')[1] | trim }}"
+      python3_minor_version: "{{ apk_system.stdout.split('.')[1] | trim }}"
     when:
       - apk_system.rc is defined
       - apk_system.rc == 0
-  - name: "apt-get: Get Python 3 minor version"
+  - name: "APT-GET: Get Python 3 minor version"
     set_fact:
-      python3_minor_version: "{{  apt_system.stdout.split(':')[1].split('.')[1] | trim }}"
+      python3_minor_version: "{{ apt_system.stdout.split(':')[1].split('.')[1] | trim }}"
     when:
       - apt_system.rc is defined
       - apt_system.rc == 0
-  - name: "dnf: Get Python 3 version"
+  - name: "DNF: Get Python 3 version"
     set_fact:
-      python3_minor_version: "{{  dnf_system.stdout.split('=')[1].split('.')[1] | trim }}"
+      python3_minor_version: "{{ dnf_system.stdout.split('=')[1].split('.')[1] | trim }}"
     when:
       - dnf_system.rc is defined
       - dnf_system.rc == 0
-  - name: "yum: Get Python 3 minor version"
+  - name: "YUM: Get Python 3 minor version"
     set_fact:
-      python3_minor_version: "{{  yum_system.stdout.split(':')[1].split('.')[1] | trim }}"
+      python3_minor_version: "{{ yum_system.stdout.split(':')[1].split('.')[1] | trim }}"
     when:
       - yum_system.rc is defined
       - yum_system.rc == 0

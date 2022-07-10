@@ -1,7 +1,8 @@
 ---
 # file: roles/ansible_python/tests/test.yml
 
-- hosts: localhost
+- name: Demo playbook for using role coglinev3.ansible_python
+  hosts: localhost
   remote_user: root
   gather_facts: false
   roles:
