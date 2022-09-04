@@ -53,6 +53,8 @@ jobs:
             distro_version: '3.14'
           - distro: coglinev3/alpine
             distro_version: '3.15'
+          - distro: coglinev3/alpine
+            distro_version: '3.16'
           - distro: centos
             distro_version: '7'
           - distro: almalinux
