@@ -12,9 +12,6 @@ You should execute this role as `pre_tasks` statement with `gather_facts` set to
 
 The supported Linux distributions for this role are:
 
-* Alpine Linux 3.9,
-* Alpine Linux 3.10,
-* Alpine Linux 3.11,
 * Alpine Linux 3.12,
 * Alpine Linux 3.13,
 * Alpine Linux 3.14,
@@ -25,8 +22,6 @@ The supported Linux distributions for this role are:
 * Debian 11 (Bullseye),
 * Enterprise Linux 7, 
 * Enterprise Linux 8, 
-* Fedora 32,
-* Fedora 33,
 * Fedora 34,
 * Fedora 35,
 * Fedora 36,
