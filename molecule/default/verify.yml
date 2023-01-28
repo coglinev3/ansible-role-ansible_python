@@ -11,10 +11,10 @@
     - name: "Get Python Version"
       shell: >
         set -o pipefail
-        && (platform-python --version 2>&1
+        && ((platform-python --version 2>&1
         || python3 --version
         || python --version 2>&1
-        || echo python not available) | grep -v "not found"
+        || echo python not available) | grep -v "not found")
       environment:
         PATH: /usr/local/bin:/bin:/usr/bin:/usr/libexec
       changed_when: false

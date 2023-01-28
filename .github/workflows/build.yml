@@ -62,8 +62,6 @@ jobs:
           - distro: almalinux
             distro_version: '8'
           - distro: debian
-            distro_version: '8'
-          - distro: debian
             distro_version: '9'
           - distro: debian
             distro_version: '10'
