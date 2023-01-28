@@ -3,19 +3,23 @@
 
 # Detect if python is installed.
 # Get python3 version if python isn't pre-installed
-- include_tasks: detect-python.yml
+- name: "Include detect-python.yml"
+  include_tasks: detect-python.yml
 
 # Install Python 3 when available and version greater then 3.5
-- include_tasks: install-python3.yml
+- name: "Include install-python3.yml"
+  include_tasks: install-python3.yml
   when:
     - needs_python.changed
     - python3_minor_version | int >= 5
 
 # Install Python 2
-- include_tasks: install-python2.yml
+- name: "Include install-python3.yml"
+  include_tasks: install-python2.yml
   when:
     - needs_python.changed
     - python3_minor_version | int < 5
 
 # Remove repository cache
-- include_tasks: remove-cache.yml
+- name: "Include remove-cache.yml"
+  include_tasks: remove-cache.yml

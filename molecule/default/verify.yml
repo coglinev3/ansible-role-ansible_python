@@ -10,7 +10,8 @@
         msg: "{{ discovered_interpreter_python }}"
     - name: "Get Python Version"
       shell: >
-        (platform-python --version 2>&1
+        set -o pipefail
+        && (platform-python --version 2>&1
         || python3 --version
         || python --version 2>&1
         || echo python not available) | grep -v "not found"
