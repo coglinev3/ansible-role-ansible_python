@@ -9,14 +9,16 @@
       debug:
         msg: "{{ discovered_interpreter_python }}"
     - name: "Get Python Version"
-      shell: >
+      ansible.builtin.shell: >
         set -o pipefail
-        && ((platform-python --version 2>&1
+        && (platform-python --version 2>&1
         || python3 --version
         || python --version 2>&1
-        || echo python not available) | grep -v "not found")
+        || echo python not available) | grep -v "not found"
       environment:
         PATH: /usr/local/bin:/bin:/usr/bin:/usr/libexec
+      args:
+        executable: /bin/bash
       changed_when: false
       failed_when: false
       register: python_version
