@@ -75,6 +75,8 @@ jobs:
             distro_version: '35'
           - distro: fedora
             distro_version: '36'
+          - distro: fedora
+            distro_version: '37'
           - distro: ubuntu
             distro_version: '16.04'
           - distro: ubuntu
