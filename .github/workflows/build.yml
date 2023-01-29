@@ -63,6 +63,8 @@ jobs:
             distro_version: '7'
           - distro: almalinux
             distro_version: '8'
+          - distro: almalinux
+            distro_version: '9'
           - distro: debian
             distro_version: '9'
           - distro: debian
