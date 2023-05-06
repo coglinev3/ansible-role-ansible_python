@@ -25,7 +25,6 @@ galaxy_info:
         - jammy
     - name: Debian
       versions:
-        - stretch
         - buster
         - bullseye
     - name: Fedora
