@@ -27,6 +27,7 @@ The supported Linux distributions for this role are:
 * Fedora 35,
 * Fedora 36,
 * Fedora 37,
+* Fedora 38,
 * Ubuntu 16.04 LTS (Xenial Xerus),
 * Ubuntu 18.04 LTS (Bionic Beaver),
 * Ubuntu 20.04 LTS (Focal Fossa) and
