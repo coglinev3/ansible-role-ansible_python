@@ -6,7 +6,7 @@
   gather_facts: true
   tasks:
     - name: Discovered pyhton interpreter
-      debug:
+      ansible.builtin.debug:
         msg: "{{ discovered_interpreter_python }}"
     - name: "Get Python Version"
       ansible.builtin.shell: >
@@ -23,9 +23,9 @@
       failed_when: false
       register: python_version
     - name: "Show Python Version"
-      debug:
+      ansible.builtin.debug:
         msg: "{{ python_version.stdout }}"
       when: python_version.stdout is defined
     - name: Show OS
-      debug:
+      ansible.builtin.debug:
         msg: "{{ ansible_distribution }} - {{ ansible_distribution_version }}"
