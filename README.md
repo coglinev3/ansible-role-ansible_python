@@ -73,7 +73,7 @@ None.
 
 ## Version
 
-Release: 1.13.0
+Release: 1.13.1
 
 ## License
 
