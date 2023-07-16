@@ -22,6 +22,7 @@ The supported Linux distributions for this role are:
 * Amazon Linux 2023,
 * Debian 10 (Buster),
 * Debian 11 (Bullseye),
+* Debian 12 (Bookworm),
 * Enterprise Linux 7, 
 * Enterprise Linux 8, 
 * Enterprise Linux 9, 

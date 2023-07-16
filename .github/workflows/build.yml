@@ -65,6 +65,8 @@ jobs:
             distro_version: '10'
           - distro: debian
             distro_version: '11'
+          - distro: debian
+            distro_version: '12'
           - distro: fedora
             distro_version: '34'
           - distro: fedora
