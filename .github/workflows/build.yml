@@ -59,6 +59,8 @@ jobs:
             distro_version: '3.16'
           - distro: coglinev3/alpine
             distro_version: '3.17'
+          - distro: coglinev3/alpine
+            distro_version: '3.18'
           - distro: amazonlinux
             distro_version: '2023'
           - distro: centos
