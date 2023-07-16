@@ -8,9 +8,6 @@ name: Build
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-#  schedule:
-#    - cron: "47 3 * * 0"
-
 defaults:
   run:
     working-directory: 'coglinev3.ansible_python'
@@ -26,13 +23,8 @@ jobs:
         with:
           path: 'coglinev3.ansible_python'
 
-      - name: Set up Python 3.
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
       - name: Install test dependencies.
-        run: pip3 install yamllint ansible-lint
+        run: python3 -m pip install --user ansible ansible-lint
 
       - name: Lint code with yamllint.
         run: yamllint .
@@ -98,29 +90,10 @@ jobs:
         with:
           path: 'coglinev3.ansible_python'
 
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install python3-pip python3-testresources libssl-dev
-
-      - name: Upgrade Python wheel
-        run: python3 -m pip install --upgrade --user wheel
-
-      - name: Upgrade Python setuptools
-        run: python3 -m pip install --upgrade --user setuptools
-
-      - name: Install Ansible Molecule with docker driver and lint tools
+      - name: Install Molecule
         run: >-
-          python3 -m pip install --upgrade --user "urllib3<2"
+          python3 -m pip install --user urllib3
           ansible
-          ansible-lint
-          "ansible-compat==4.0.0"
           molecule
           molecule-plugins[docker]
 
