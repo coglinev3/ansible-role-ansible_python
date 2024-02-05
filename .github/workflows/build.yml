@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: 'coglinev3.ansible_python'
 
@@ -53,6 +53,8 @@ jobs:
             distro_version: '3.17'
           - distro: coglinev3/alpine
             distro_version: '3.18'
+          - distro: coglinev3/alpine
+            distro_version: '3.19'
           - distro: amazonlinux
             distro_version: '2023'
           - distro: centos
@@ -88,7 +90,7 @@ jobs:
 
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: 'coglinev3.ansible_python'
 

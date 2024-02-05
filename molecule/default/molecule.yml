@@ -5,7 +5,7 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: docker.io/${MOLECULE_DISTRO:-coglinev3/alpine}:${MOLECULE_DISTRO_VERSION:-3.15}
+    image: docker.io/${MOLECULE_DISTRO:-coglinev3/alpine}:${MOLECULE_DISTRO_VERSION:-3.19}
     pre_build_image: ${MOLECULE_DISTRO_PREBUILD:-true}
 provisioner:
   name: ansible
