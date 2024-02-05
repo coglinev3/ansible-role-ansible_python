@@ -80,8 +80,6 @@ jobs:
           - distro: fedora
             distro_version: '38'
           - distro: ubuntu
-            distro_version: '16.04'
-          - distro: ubuntu
             distro_version: '18.04'
           - distro: ubuntu
             distro_version: '20.04'
