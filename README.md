@@ -74,7 +74,7 @@ None.
 
 ## Version
 
-Release: 1.13.1
+Release: 1.14.0
 
 ## License
 
@@ -82,4 +82,4 @@ BSD
 
 ## Author Information
 
-Copyright &copy; 2023 Cogline.v3.
+Copyright &copy; 2024 Cogline.v3.
