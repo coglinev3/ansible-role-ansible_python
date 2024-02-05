@@ -79,6 +79,8 @@ jobs:
             distro_version: '37'
           - distro: fedora
             distro_version: '38'
+          - distro: fedora
+            distro_version: '39'
           - distro: ubuntu
             distro_version: '18.04'
           - distro: ubuntu
