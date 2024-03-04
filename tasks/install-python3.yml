@@ -11,16 +11,22 @@
     - apk_system.rc == 0
 - name: Install Python 3 when needed on apt-get based systems
   ansible.builtin.raw: apt-get install -y --no-install-recommends python3-minimal python3-apt
+  args:
+    executable: /bin/bash
   when:
     - apt_system.rc is defined
     - apt_system.rc == 0
 - name: Install Python 3 when needed on yum based systems
   ansible.builtin.raw: yum -y install python3
+  args:
+    executable: /bin/bash
   when:
     - yum_system.rc is defined
     - yum_system.rc == 0
 - name: Install Python 3 when needed on dnf based systems
   ansible.builtin.raw: dnf -y install python3)
+  args:
+    executable: /bin/bash
   when:
     - yum_system.rc is not defined # sometimes yum and dnf are both installed
     - dnf_system.rc is defined

@@ -11,14 +11,20 @@
     - apk_system.rc == 0
 - name: Install Python 2 when needed on apt-get based systems
   ansible.builtin.raw: apt-get install -y --no-install-recommends python-minimal python-apt
+  args:
+    executable: /bin/bash
   when:
     - apt_system.rc == 0
 - name: Install Python 2 when needed on yum based systems
   ansible.builtin.raw: yum -y install python3
+  args:
+    executable: /bin/bash
   when:
     - yum_system.rc == 0
 - name: Install Python 2 when needed on dnf based systems
   ansible.builtin.raw: dnf -y install python)
+  args:
+    executable: /bin/bash
   when:
     - yum_system.rc is not defined
     - dnf_system.rc is defined

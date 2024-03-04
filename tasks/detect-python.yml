@@ -4,16 +4,22 @@
 # Check if python is already installed
 - name: Check if Platform Python exists
   ansible.builtin.raw: test -e /usr/libexec/platform-python
+  args:
+    executable: /bin/bash
   register: check_platform_python
   changed_when: false
   failed_when: false
 - name: Check if Python 3 exists
   ansible.builtin.raw: test -e /usr/bin/python3
+  args:
+    executable: /bin/bash
   register: check_python3
   changed_when: false
   failed_when: false
 - name: Check if Python exists
   ansible.builtin.raw: test -e /usr/bin/python
+  args:
+    executable: /bin/bash
   register: needs_python
   changed_when: needs_python.rc != 0
   failed_when: false
@@ -43,6 +49,8 @@
       test -e /usr/bin/apt-get
       && (apt-get update > /dev/null
       && apt-cache show python3-minimal | grep Version)
+    args:
+      executable: /bin/bash
     register: apt_system
     failed_when: false
     changed_when: apt_system.rc == 0
@@ -50,6 +58,8 @@
     ansible.builtin.raw: >-
       test -e /usr/bin/dnf
       && (dnf makecache > /dev/null && dnf provides python3|grep Provide|cut -d ':' -f 2)
+    args:
+      executable: /bin/bash
     register: dnf_system
     failed_when: false
     changed_when: dnf_system.rc == 0
@@ -57,6 +67,8 @@
     ansible.builtin.raw: >-
       test -e /usr/bin/yum
       && (yum makecache > /dev/null && yum info python3 | grep Version | head -1)
+    args:
+      executable: /bin/bash
     register: yum_system
     failed_when: false
     changed_when: yum_system.rc == 0
