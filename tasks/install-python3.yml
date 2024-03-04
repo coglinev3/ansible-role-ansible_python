@@ -4,6 +4,8 @@
 # Install Python 3 when available and version greater then 3.5
 - name: Install Python 3 when needed on apk based systems
   ansible.builtin.raw: apk add --no-cache python3
+  args:
+    executable: /bin/bash
   when:
     - apk_system.rc is defined
     - apk_system.rc == 0
