@@ -24,8 +24,6 @@ The supported Linux distributions for this role are:
 * Debian 10 (Buster),
 * Debian 11 (Bullseye),
 * Debian 12 (Bookworm),
-* Enterprise Linux 7, 
-* Enterprise Linux 8, 
 * Enterprise Linux 9, 
 * Fedora 34,
 * Fedora 35,
@@ -33,7 +31,6 @@ The supported Linux distributions for this role are:
 * Fedora 37,
 * Fedora 38,
 * Fedora 39,
-* Ubuntu 18.04 LTS (Bionic Beaver),
 * Ubuntu 20.04 LTS (Focal Fossa) and
 * Ubuntu 22.04 LTS (Jammy Jellyfish).
 
