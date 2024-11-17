@@ -24,7 +24,7 @@
     - yum_system.rc is defined
     - yum_system.rc == 0
 - name: Install Python 3 when needed on dnf based systems
-  ansible.builtin.raw: dnf -y install python3)
+  ansible.builtin.raw: dnf -y install python3
   args:
     executable: /bin/bash
   when:
