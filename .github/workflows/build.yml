@@ -79,13 +79,10 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v6
         with:
-          path: '~/.ansible/roles/coglinev3.ansible_python'
+          path: coglinev3.ansible_python
 
       - name: Show GITHUB_WORKSPACE
         run: echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
-
-      - name: Show directory content
-        run: ls -laR ~
 
       - name: Install Molecule
         run: >-
@@ -94,11 +91,11 @@ jobs:
           molecule
           molecule-plugins[docker]
 
-      - name: Configure Ansible
-        run: |
-          mkdir -p ~/.ansible
-          cp .github/ansible.cfg ~/.ansible.cfg
-          cp .github/hosts ~/.ansible/hosts
+#      - name: Configure Ansible
+#        run: |
+#          mkdir -p ~/.ansible
+#          cp .github/ansible.cfg ~/.ansible.cfg
+#          cp .github/hosts ~/.ansible/hosts
 
       - name: Show Ansible and Molecule version
         run: |
@@ -112,7 +109,7 @@ jobs:
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_DISTRO_VERSION: ${{ matrix.distro_version }}
-          ANSIBLE_ROLES_PATH: ~/.ansible/molecule/roles
+          # ANSIBLE_ROLES_PATH: ~/.ansible/molecule/roles
 
   # Push Ansible role to Ansible Galaxy
   release:
