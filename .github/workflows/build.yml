@@ -40,8 +40,6 @@ jobs:
       matrix:
         include:
           - distro: coglinev3/alpine
-            distro_version: '3.12'
-          - distro: coglinev3/alpine
             distro_version: '3.13'
           - distro: coglinev3/alpine
             distro_version: '3.14'
