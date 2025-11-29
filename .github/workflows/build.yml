@@ -69,8 +69,6 @@ jobs:
           - distro: fedora
             distro_version: '39'
           - distro: ubuntu
-            distro_version: '20.04'
-          - distro: ubuntu
             distro_version: '22.04'
 
     steps:
@@ -79,13 +77,9 @@ jobs:
         with:
           path: coglinev3.ansible_python
 
-      - name: Show GITHUB_WORKSPACE
-        run: echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
-
       - name: Install Molecule
         run: >-
-          python3 -m pip install --user urllib3
-          ansible
+          python3 -m pip install --user ansible
           molecule
           molecule-plugins[docker]
 
@@ -107,7 +101,6 @@ jobs:
           ANSIBLE_FORCE_COLOR: '1'
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_DISTRO_VERSION: ${{ matrix.distro_version }}
-          # ANSIBLE_ROLES_PATH: ~/.ansible/molecule/roles
 
   # Push Ansible role to Ansible Galaxy
   release:

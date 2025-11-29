@@ -28,7 +28,6 @@ The supported Linux distributions for this role are:
 * Fedora 37,
 * Fedora 38,
 * Fedora 39,
-* Ubuntu 20.04 LTS (Focal Fossa) and
 * Ubuntu 22.04 LTS (Jammy Jellyfish).
 
 The role was tested with Molecule and Docker on GitHub and with this [Multi-VM Vagrant environment](https://ansible-development.readthedocs.io/ "Vagrant environment for Developing and Testing Ansible Roles").

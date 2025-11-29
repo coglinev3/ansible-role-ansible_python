@@ -10,7 +10,7 @@
     - apk_system.rc is defined
     - apk_system.rc == 0
 - name: Install Python 2 when needed on apt-get based systems
-  ansible.builtin.raw: apt-get install -y --no-install-recommends python-minimal python-apt
+  ansible.builtin.raw: apt-get install -y --no-install-recommends python2-minimal python-apt
   args:
     executable: /bin/bash
   when:
