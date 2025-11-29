@@ -57,18 +57,6 @@ jobs:
           - distro: debian
             distro_version: '12'
           - distro: fedora
-            distro_version: '34'
-          - distro: fedora
-            distro_version: '35'
-          - distro: fedora
-            distro_version: '36'
-          - distro: fedora
-            distro_version: '37'
-          - distro: fedora
-            distro_version: '38'
-          - distro: fedora
-            distro_version: '39'
-          - distro: fedora
             distro_version: '40'
           - distro: fedora
             distro_version: '41'
