@@ -68,6 +68,12 @@ jobs:
             distro_version: '38'
           - distro: fedora
             distro_version: '39'
+          - distro: fedora
+            distro_version: '40'
+          - distro: fedora
+            distro_version: '41'
+          - distro: fedora
+            distro_version: '42'
           - distro: ubuntu
             distro_version: '22.04'
           - distro: ubuntu
