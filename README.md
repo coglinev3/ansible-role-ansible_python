@@ -2,10 +2,11 @@
 
 [![Build](https://github.com/coglinev3/ansible-role-ansible_python/actions/workflows/build.yml/badge.svg)](https://github.com/coglinev3/ansible-role-ansible_python/actions/workflows/build.yml) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/coglinev3/ansible-role-ansible_python) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://raw.githubusercontent.com/coglinev3/ansible-role-ansible_python/master/LICENSE)
 
-Ansible needs Python 2 (version 2.6 or later) or Python 3 (version 3.5 or later) in order to work. But Python is not preinstalled on some Linux Distributions or Docker images (like on Ubuntu images). To prevent manual installation of Python on such systems, this Ansible role uses the raw module (which does not require Python) to install the Python2 or the Python3 package. Ansible can then be used normally on these systems.
-
->**Warning:** 
-Ansible 2.11 will make Python 3.8 a soft dependency for the control node, but will function with the aforementioned requirements. Ansible 2.12 will require Python 3.8 or newer to function on the control node. Starting with Ansible 2.11, the project will only be packaged for Python 3.8 and newer.
+New Ansible versions need Python 3 (version 3.9 or later) in order to work.
+But Python is not preinstalled on some Linux Distributions or Docker images.
+To prevent manual installation of Python on such systems, this Ansible role
+uses the raw module (which does not require Python) to install the Python
+package. Ansible can then be used normally on these systems.
 
 
 You should execute this role as `pre_tasks` statement with `gather_facts` set to **false** like in the example below.
@@ -28,7 +29,8 @@ The supported Linux distributions for this role are:
 * Fedora 37,
 * Fedora 38,
 * Fedora 39,
-* Ubuntu 22.04 LTS (Jammy Jellyfish).
+* Ubuntu 22.04 LTS (Jammy Jellyfish),
+* Ubuntu 24.04 LTS (Noble Numbat).
 
 The role was tested with Molecule and Docker on GitHub and with this [Multi-VM Vagrant environment](https://ansible-development.readthedocs.io/ "Vagrant environment for Developing and Testing Ansible Roles").
 
