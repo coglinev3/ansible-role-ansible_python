@@ -6,13 +6,13 @@
 - name: "Include detect-python.yml"
   ansible.builtin.include_tasks: detect-python.yml
 
-# Install Python 3 when available and version greater then 3.5
+# Install Python 3 when available and version greater then 3.9
 - name: "Include install-python3.yml"
   ansible.builtin.include_tasks: install-python3.yml
   when:
     - needs_python.changed
     - python3_minor_version is defined
-    - python3_minor_version | int >= 5
+    - python3_minor_version | int >= 9
 
 # Install Python 2
 - name: "Include install-python3.yml"
@@ -20,7 +20,7 @@
   when:
     - needs_python.changed
     - python3_minor_version is defined
-    - python3_minor_version | int < 5
+    - python3_minor_version | int < 9
 
 # Remove repository cache
 - name: "Include remove-cache.yml"

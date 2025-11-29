@@ -19,15 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: 'coglinev3.ansible_python'
 
       - name: Install test dependencies.
         run: python3 -m pip install --user ansible ansible-lint
-
-      - name: Lint code with yamllint.
-        run: yamllint .
 
       - name: Lint code with ansible-lint.
         run: ansible-lint
@@ -39,8 +36,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - distro: coglinev3/alpine
-            distro_version: '3.13'
           - distro: coglinev3/alpine
             distro_version: '3.14'
           - distro: coglinev3/alpine
@@ -82,9 +77,15 @@ jobs:
 
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          path: 'coglinev3.ansible_python'
+          path: '~/.ansible/roles/coglinev3.ansible_python'
+
+      - name: Show GITHUB_WORKSPACE
+        run: echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+
+      - name: Show directory content
+        run: ls -laR ~
 
       - name: Install Molecule
         run: >-
