@@ -53,8 +53,6 @@ jobs:
           - distro: almalinux
             distro_version: '9'
           - distro: debian
-            distro_version: '10'
-          - distro: debian
             distro_version: '11'
           - distro: debian
             distro_version: '12'
@@ -91,11 +89,11 @@ jobs:
           molecule
           molecule-plugins[docker]
 
-#      - name: Configure Ansible
-#        run: |
-#          mkdir -p ~/.ansible
-#          cp .github/ansible.cfg ~/.ansible.cfg
-#          cp .github/hosts ~/.ansible/hosts
+      - name: Configure Ansible
+        run: |
+          mkdir -p ~/.ansible
+          cp .github/ansible.cfg ~/.ansible.cfg
+          cp .github/hosts ~/.ansible/hosts
 
       - name: Show Ansible and Molecule version
         run: |
