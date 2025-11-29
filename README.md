@@ -27,6 +27,7 @@ The supported Linux distributions for this role are:
 * Debian 12 (Bookworm),
 * Debian 13 (Trixie),
 * Enterprise Linux 9, 
+* Enterprise Linux 10, 
 * Fedora 40,
 * Fedora 41,
 * Fedora 42,
